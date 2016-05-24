@@ -5,7 +5,13 @@
       <li><i class="fa fa-github fa-2x" aria-hidden="true"></i></li>
     </ul>
     <ul class="right hide-on-med-only">
-      <li><%= link_to "Sign in with Github", login_path, class: "login-link" %></li>
+
+      <% if session[:token] %>
+        <li><%= link_to "Logout", logout_path, method: :delete, class: "login-link" %></li>
+      <% else %>
+        <li><%= link_to "Sign in with Github", login_path, class: "login-link" %></li>
+      <% end %>
+      
     </ul>
   </div>
 </nav>
