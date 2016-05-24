@@ -1,1 +1,8 @@
-<h1>Welcome, <%= @user_name %></h1>
+<div class="row">
+  <div class="col-md-3">
+    <% if session[:token] %>
+      <%= link_to image_tag(@avatar, size: '200x200', alt: "#{@user} avatar", class: "img-rounded") %>
+      <h1><%= @user_name %></h1>
+    <% end %>
+  </div>
+</div>

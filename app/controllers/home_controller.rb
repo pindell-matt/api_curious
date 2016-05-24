@@ -12,6 +12,9 @@ class HomeController < ApplicationController
     json_user  = JSON.parse(user.body)
     @user_name = json_user["login"]
     @user_id   = json_user["id"]
+    @avatar    = json_user["avatar_url"]
 
+    # require "pry"
+    # binding.pry
   end
 end
