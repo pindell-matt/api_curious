@@ -19,11 +19,10 @@ class SessionsController < ApplicationController
       code:          @code
     }
 
-    # save access_token in session
     # must be a better way of getting this with JSON.parse
     access_token = response.env['body'].split('&').first.split('=').last
-    # now need to include it in the Authorization Header
     session[:token] = access_token
+    # now need to include it in the Authorization Header
 
       # testing with access_token
       # conn = Faraday.new(url: 'https://api.github.com') do |faraday|
