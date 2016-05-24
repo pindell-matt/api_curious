@@ -13,8 +13,20 @@ class GithubUserService
     parse(get_user)
   end
 
-  def parse(response)
-    JSON.parse(response.body, symbolize_names: true)
+  def get_followers
+    @connection.get "user/followers"
   end
 
+  def followers_hash
+    parse(get_followers)
+  end
+
+  def user_followers_count
+    parse(get_followers).count
+  end
+
+  private
+    def parse(response)
+      JSON.parse(response.body, symbolize_names: true)
+    end
 end
