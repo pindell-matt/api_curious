@@ -14,10 +14,7 @@
  *= require_self
  */
 
-.fa-github {
-  color: black;
-}
-
-.login-link {
-  color: black;
+.fa-home {
+  display: block;
+  text-align: center;
 }

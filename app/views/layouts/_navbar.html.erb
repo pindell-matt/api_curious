@@ -1,11 +1,35 @@
-<nav>
-  <div class="nav-wrapper grey lighten-4">
-    <a href="#" class="brand-logo"></a>
-    <ul class="left hide-on-small-and-down">
-      <li><i class="fa fa-github fa-2x" aria-hidden="true"></i></li>
-    </ul>
-    <ul class="right hide-on-med-and-down">
-      <li><a class="login-link" href="sass.html">Login</a></li>
-    </ul>
-  </div>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button> -->
+      <a class="navbar-brand fa-home fa fa-github fa-2x" href="/"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search CloneHub">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-left">
+        <li><%= link_to "Pull Requests" %></li>
+        <li><%= link_to "Issues" %></li>
+        <li><%= link_to "Gists" %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <% if session[:token] %>
+            <li><%= link_to "Logout", logout_path, method: :delete, class: "login-link" %></li>
+          <% else %>
+            <li><%= link_to "Sign in with Github", login_path, class: "login-link" %></li>
+          <% end %>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
 </nav>
