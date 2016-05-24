@@ -1,4 +1,4 @@
-class ApiService
+class GithubUserService
 
   def initialize(token)
     @connection = Faraday.new(url: "https://api.github.com")

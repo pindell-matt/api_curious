@@ -16,6 +16,7 @@ class SessionsController < ApplicationController
     }
 
     # must be a better way of getting this with JSON.parse / different faraday post?
+    # cgi library
     access_token = response.env['body'].split('&').first.split('=').last
     session[:token] = access_token
 
