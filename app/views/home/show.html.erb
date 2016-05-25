@@ -40,7 +40,7 @@
             <p>This is Contributions</p>
           </div>
           <div class="tab-pane" id="tab2">
-            <% @repos.each do |repo| %>
+            <% @user.repos.each do |repo| %>
               <div class="repo">
                 <h4><strong><%= link_to "#{repo.name}", "#{repo.html_url}" %></strong></h4>
                 <p>Updated at <%= repo.updated_at %></p>
