@@ -1,8 +1,18 @@
 <div class="row">
   <div class="col-md-3">
     <% if session[:token] %>
-      <%= link_to image_tag(@avatar, size: '200x200', alt: "#{@user} avatar", class: "img-rounded") %>
-      <h1><%= @user_name %></h1>
+
+      <%= link_to image_tag(@user.avatar_url, size: '225x225', alt: "#{@user.name} avatar", class: "img-rounded") %>
+
+      <h2><%= @user.name %></h2>
+      <h4><%= @user.login %></h4>
+
+      <p><%= @user.email %></p>
+      <p>Joined on <%= @user.created_at %></p>
+
+      <p>Followers: <%= @user.followers %></p>
+      <p>Following: <%= @user.following %></p>
+
     <% end %>
   </div>
 </div>
