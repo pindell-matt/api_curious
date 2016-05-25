@@ -8,7 +8,7 @@ class Repo < OpenStruct
   end
 
   def self.service(token)
-    GithubUserService.new(token)
+    GithubService.new(token)
   end
 
 end

@@ -1,6 +1,5 @@
 <div class="row">
   <% if session[:token] %>
-
     <div class="col-sm-3">
       <%= link_to image_tag(@user.avatar_url, alt: "#{@user.name} avatar", class: "img-responsive img-rounded pull-left") %>
       <div class="basic-user-info">
@@ -47,14 +46,7 @@
                 <p>Updated at <%= repo.updated_at %></p>
               </div>
               <hr>
-              <!-- <div class="panel panel-default">
-                <div class="panel-body">
-                  <%= link_to "#{repo.name}", "#{repo.html_url}" %>
-                </div>
-              </div> -->
             <% end %>
-
-
           </div>
           <div class="tab-pane" id="tab3">
             <p>This is Public Activity</p>
@@ -63,9 +55,4 @@
       </div>
     </div>
   <% end %>
-
-</div>
-
-<div class="row">
-
 </div>
