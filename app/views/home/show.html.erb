@@ -30,7 +30,7 @@
     </div>
 
     <div class="col-sm-9">
-      <div class="tabbable"> <!-- Only required for left/right tabs -->
+      <div class="tabbable">
         <ul class="nav nav-tabs">
           <li class="active"><a href="#tab1" data-toggle="tab"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Contributions</a></li>
           <li><a href="#tab2" data-toggle="tab"><i class="fa fa-book" aria-hidden="true"></i> Repositories</a></li>
@@ -41,12 +41,20 @@
             <p>This is Contributions</p>
           </div>
           <div class="tab-pane" id="tab2">
-            <p>This is Repositories</p>
-            <ul>
-              <% @repos.each do |repo| %>
-                <li><%= repo.name %></li>
-              <% end %>
-            </ul>
+            <% @repos.each do |repo| %>
+              <div class="repo">
+                <h4><strong><%= link_to "#{repo.name}", "#{repo.html_url}" %></strong></h4>
+                <p>Updated at <%= repo.updated_at %></p>
+              </div>
+              <hr>
+              <!-- <div class="panel panel-default">
+                <div class="panel-body">
+                  <%= link_to "#{repo.name}", "#{repo.html_url}" %>
+                </div>
+              </div> -->
+            <% end %>
+
+
           </div>
           <div class="tab-pane" id="tab3">
             <p>This is Public Activity</p>
