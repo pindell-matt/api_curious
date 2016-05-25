@@ -13,6 +13,14 @@ class GithubUserService
     parse(get_user)
   end
 
+  def get_repos
+    @connection.get "user/repos"
+  end
+
+  def repos_hash
+    parse(get_repos)
+  end
+
   private
     def parse(response)
       JSON.parse(response.body, symbolize_names: true)

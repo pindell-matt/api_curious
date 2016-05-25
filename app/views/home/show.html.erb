@@ -1,23 +1,18 @@
 <div class="row">
   <% if session[:token] %>
 
-    <div class="col-md-3">
+    <div class="col-sm-3">
       <%= link_to image_tag(@user.avatar_url, alt: "#{@user.name} avatar", class: "img-responsive img-rounded pull-left") %>
-
       <div class="basic-user-info">
         <h3><strong><%= @user.name %></strong></h3>
         <h4 class="text-muted" ><%= @user.login %></h4>
       </div>
-
       <hr>
-
       <div class="basic-user-info">
         <span class="fa fa-envelope-o" aria-hidden="true"></span> <%= @user.email %>
       </div>
       <span class="glyphicon glyphicon-time" aria-hidden="true"></span> Joined on <%= @user.created_at %>
-
       <hr>
-
       <div class="vcard-stats border-top border-bottom border-gray-light mb-3 py-3">
         <a class="vcard-stat" href="/pindell-matt/followers">
           <strong class="vcard-stat-count d-block"><%= @user.followers %></strong>
@@ -34,7 +29,7 @@
       </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-sm-9">
       <div class="tabbable"> <!-- Only required for left/right tabs -->
         <ul class="nav nav-tabs">
           <li class="active"><a href="#tab1" data-toggle="tab"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Contributions</a></li>
@@ -47,6 +42,11 @@
           </div>
           <div class="tab-pane" id="tab2">
             <p>This is Repositories</p>
+            <ul>
+              <% @repos.each do |repo| %>
+                <li><%= repo.name %></li>
+              <% end %>
+            </ul>
           </div>
           <div class="tab-pane" id="tab3">
             <p>This is Public Activity</p>

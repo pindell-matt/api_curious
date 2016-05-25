@@ -1,7 +1,8 @@
 class HomeController < ApplicationController
 
   def show
-    service   = GithubUserService.new(session[:token])
+    token     = session[:token]
+    service   = GithubUserService.new(token)
     user_data = service.user_hash
 
     @user = User.new(user_data)
@@ -9,10 +10,7 @@ class HomeController < ApplicationController
     # format hash so that I have everything I need bundled in key, value
     # pairs within User
 
-    # require "pry"
-    # binding.pry
+    @repos = Repo.all(token)
 
-    # @user_name = user_data[:login]
-    # @avatar    = user_data[:avatar_url]
   end
 end
