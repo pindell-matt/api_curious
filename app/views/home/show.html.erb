@@ -1,18 +1,63 @@
 <div class="row">
-  <div class="col-md-3">
-    <% if session[:token] %>
+  <% if session[:token] %>
 
-      <%= link_to image_tag(@user.avatar_url, size: '225x225', alt: "#{@user.name} avatar", class: "img-rounded") %>
+    <div class="col-md-3">
+      <%= link_to image_tag(@user.avatar_url, alt: "#{@user.name} avatar", class: "img-responsive img-rounded pull-left") %>
 
-      <h2><strong><%= @user.name %></strong></h2>
-      <h4><%= @user.login %></h4>
+      <div class="basic-user-info">
+        <h3><strong><%= @user.name %></strong></h3>
+        <h4 class="text-muted" ><%= @user.login %></h4>
+      </div>
 
-      <p><%= @user.email %></p>
-      <p>Joined on <%= @user.created_at %></p>
+      <hr>
 
-      <p>Followers: <%= @user.followers %></p>
-      <p>Following: <%= @user.following %></p>
+      <div class="basic-user-info">
+        <span class="fa fa-envelope-o" aria-hidden="true"></span> <%= @user.email %>
+      </div>
+      <span class="glyphicon glyphicon-time" aria-hidden="true"></span> Joined on <%= @user.created_at %>
 
-    <% end %>
-  </div>
+      <hr>
+
+      <div class="vcard-stats border-top border-bottom border-gray-light mb-3 py-3">
+        <a class="vcard-stat" href="/pindell-matt/followers">
+          <strong class="vcard-stat-count d-block"><%= @user.followers %></strong>
+          <span class="text-muted">Followers</span>
+        </a>
+        <a class="vcard-stat" href="/stars">
+          <strong class="vcard-stat-count d-block">0</strong>
+          <span class="text-muted">Starred</span>
+        </a>
+        <a class="vcard-stat" href="/pindell-matt/following">
+          <strong class="vcard-stat-count d-block"><%= @user.following %></strong>
+          <span class="text-muted">Following</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="tabbable"> <!-- Only required for left/right tabs -->
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#tab1" data-toggle="tab"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Contributions</a></li>
+          <li><a href="#tab2" data-toggle="tab"><i class="fa fa-book" aria-hidden="true"></i> Repositories</a></li>
+          <li><a href="#tab3" data-toggle="tab"><i class="fa fa-rss" aria-hidden="true"></i> Public Activity</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="tab1">
+            <p>This is Contributions</p>
+          </div>
+          <div class="tab-pane" id="tab2">
+            <p>This is Repositories</p>
+          </div>
+          <div class="tab-pane" id="tab3">
+            <p>This is Public Activity</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+</div>
+
+<div class="row">
+
 </div>
