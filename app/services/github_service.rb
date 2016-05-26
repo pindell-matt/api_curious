@@ -64,6 +64,11 @@ class GithubService
     doc.search('.flush h3').last.text.strip
   end
 
+  def search(terms)
+    request = connection.get '/search/repositories', { q: terms }
+    parse(request)
+  end
+
   private
     def parse(response)
       JSON.parse(response.body, symbolize_names: true)
