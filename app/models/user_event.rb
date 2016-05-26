@@ -1,4 +1,4 @@
-class Event
+class UserEvent
   include ActionView::Helpers::DateHelper
 
   attr_reader :type, :repo
