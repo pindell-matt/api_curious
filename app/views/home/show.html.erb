@@ -45,8 +45,8 @@
             <h3><%= @user.yearly_contributions %></h3>
             <% @user.activity_of_followed.each do |activity| %>
               <div class="activity">
-                <h4><strong><%= link_to "#{activity.repo[:name]}", "#{activity.repo[:url]}" %></strong></h4>
-                <p>By <%= activity.actor[:login] %></p>
+                <h4><strong><%= activity.type %> to <%= link_to activity.repo, activity.html_url %></strong></h4>
+                <p>By <%= activity.actor %> <%= activity.update_time_in_words %> ago</p>
               </div>
               <hr>
             <% end %>
