@@ -1,8 +1,8 @@
 class GithubService
 
   def initialize(token)
-    @connection = Faraday.new(url: "https://api.github.com")
-    @connection.headers["Authorization"] = "token #{token}"
+    @_connection = Faraday.new(url: "https://api.github.com")
+    @_connection.headers["Authorization"] = "token #{token}"
   end
 
   def login
@@ -10,7 +10,7 @@ class GithubService
   end
 
   def get_user
-    @connection.get "user"
+    connection.get "user"
   end
 
   def user_hash
@@ -18,7 +18,7 @@ class GithubService
   end
 
   def get_repos
-    @connection.get "user/repos"
+    connection.get "user/repos", { :per_page => 100 }
   end
 
   def repos_hash
@@ -26,7 +26,7 @@ class GithubService
   end
 
   def get_starred_repos
-    @connection.get "user/starred"
+    connection.get "user/starred"
   end
 
   def starred_repos_hash
@@ -34,7 +34,7 @@ class GithubService
   end
 
   def get_organizations
-    @connection.get "users/#{login}/orgs"
+    connection.get "users/#{login}/orgs"
   end
 
   def organizations_hash
@@ -42,7 +42,7 @@ class GithubService
   end
 
   def get_recent_events
-    @connection.get "users/#{login}/events"
+    connection.get "users/#{login}/events"
   end
 
   def recent_events_hash
@@ -50,7 +50,7 @@ class GithubService
   end
 
   def get_recent_activity_of_followed
-    @connection.get "users/#{login}/received_events"
+    connection.get "users/#{login}/received_events"
   end
 
   def recent_activity_of_followed_hash
@@ -58,8 +58,8 @@ class GithubService
   end
 
   def get_yearly_contributions
-    that = @connection.get "users/#{login}"
-    page = @connection.get parse(that)[:html_url]
+    that = connection.get "users/#{login}"
+    page = connection.get parse(that)[:html_url]
     doc  = Nokogiri::HTML(page.body)
     doc.search('.flush h3').last.text.strip
   end
@@ -67,5 +67,9 @@ class GithubService
   private
     def parse(response)
       JSON.parse(response.body, symbolize_names: true)
+    end
+
+    def connection
+      @_connection
     end
 end
