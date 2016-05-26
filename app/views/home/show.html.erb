@@ -18,13 +18,19 @@
           <span class="text-muted">Followers</span>
         </a>
         <a class="vcard-stat" href="/stars">
-          <strong class="vcard-stat-count d-block">0</strong>
+          <strong class="vcard-stat-count d-block"><%= @user.starred %></strong>
           <span class="text-muted">Starred</span>
         </a>
         <a class="vcard-stat" href="/pindell-matt/following">
           <strong class="vcard-stat-count d-block"><%= @user.following %></strong>
           <span class="text-muted">Following</span>
         </a>
+      </div>
+      <hr>
+      <div class="organizations">
+        <% @user.organizations.each do |organization| %>
+          <%= link_to image_tag(organization.avatar_url, alt: "#{organization.login} avatar", class: "img-responsive pull-left"), organization.url %>
+        <% end %>
       </div>
     </div>
 
@@ -37,7 +43,14 @@
         </ul>
         <div class="tab-content">
           <div class="tab-pane active" id="tab1">
-            <p>This is Contributions</p>
+            <h3><%= @user.yearly_contributions %></h3>
+            <% @user.activity_of_followed.each do |activity| %>
+              <div class="activity">
+                <h4><strong><%= link_to "#{activity.repo[:name]}", "#{activity.repo[:url]}" %></strong></h4>
+                <p>By <%= activity.actor[:login] %></p>
+              </div>
+              <hr>
+            <% end %>
           </div>
           <div class="tab-pane" id="tab2">
             <% @user.repos.each do |repo| %>
@@ -49,7 +62,13 @@
             <% end %>
           </div>
           <div class="tab-pane" id="tab3">
-            <p>This is Public Activity</p>
+            <% @user.events.each do |event| %>
+              <div class="event">
+                <h4><strong><%= link_to "#{event.repo[:name]}", "#{event.repo[:url]}" %></strong></h4>
+                <p>Updated at <%= event.created_at %></p>
+              </div>
+              <hr>
+            <% end %>
           </div>
         </div>
       </div>
