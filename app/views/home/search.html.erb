@@ -1,6 +1,6 @@
-<h1>We’ve found <%= @total %> repository results</h1>
+<h1>We’ve found <%= @results.total %> repository results</h1>
 
-<% @search_items.each do |item| %>
+<% @results.search_items.each do |item| %>
   <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title">
