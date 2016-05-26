@@ -18,7 +18,7 @@ describe GithubService do
   end
 
   it "returns the repos data for a given user" do
-    VCR.use_cassette('github_service#user', record: :new_episodes) do
+    VCR.use_cassette('github_service#repos') do
       service = GithubService.new(ENV["TEST_TOKEN"])
       repos   = service.repos_hash
       repo    = repos.first
@@ -27,6 +27,15 @@ describe GithubService do
       expect(repo[:id]).to        eq(56370165)
       expect(repo[:name]).to      eq("swift")
       expect(repo[:full_name]).to eq("jdliss/swift")
+    end
+  end
+
+  it "returns the starred repos data for a given user" do
+    VCR.use_cassette('github_service#starred_repos') do
+      service = GithubService.new(ENV["TEST_TOKEN"])
+      repos   = service.starred_repos_hash
+
+      expect(repos.count).to eq(0)
     end
   end
 end

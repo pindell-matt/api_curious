@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - GitHub.com
       Date:
-      - Thu, 26 May 2016 02:05:47 GMT
+      - Thu, 26 May 2016 02:22:28 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -33,7 +33,7 @@ http_interactions:
       X-Ratelimit-Limit:
       - '5000'
       X-Ratelimit-Remaining:
-      - '4962'
+      - '4952'
       X-Ratelimit-Reset:
       - '1464231007'
       Cache-Control:
@@ -69,15 +69,15 @@ http_interactions:
       X-Xss-Protection:
       - 1; mode=block
       X-Served-By:
-      - 76d9828c7e4f1d910f7ba069e90ce976
+      - 13d09b732ebe76f892093130dc088652
       X-Github-Request-Id:
-      - 3F910F63:1271B:125956B9:574659FB
+      - 3F910F63:B20D:2FF68A3:57465DE3
     body:
       encoding: ASCII-8BIT
       string: '{"login":"pindell-matt","id":8797393,"avatar_url":"https://avatars.githubusercontent.com/u/8797393?v=3","gravatar_id":"","url":"https://api.github.com/users/pindell-matt","html_url":"https://github.com/pindell-matt","followers_url":"https://api.github.com/users/pindell-matt/followers","following_url":"https://api.github.com/users/pindell-matt/following{/other_user}","gists_url":"https://api.github.com/users/pindell-matt/gists{/gist_id}","starred_url":"https://api.github.com/users/pindell-matt/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/pindell-matt/subscriptions","organizations_url":"https://api.github.com/users/pindell-matt/orgs","repos_url":"https://api.github.com/users/pindell-matt/repos","events_url":"https://api.github.com/users/pindell-matt/events{/privacy}","received_events_url":"https://api.github.com/users/pindell-matt/received_events","type":"User","site_admin":false,"name":"Matt
         Pindell","company":null,"blog":null,"location":null,"email":"pindell.m@protonmail.com","hireable":null,"bio":null,"public_repos":40,"public_gists":7,"followers":20,"following":18,"created_at":"2014-09-16T19:59:39Z","updated_at":"2016-05-23T22:49:11Z"}'
     http_version: 
-  recorded_at: Thu, 26 May 2016 02:05:46 GMT
+  recorded_at: Thu, 26 May 2016 02:22:27 GMT
 - request:
     method: get
     uri: https://api.github.com/user/starred
@@ -101,7 +101,7 @@ http_interactions:
       Server:
       - GitHub.com
       Date:
-      - Thu, 26 May 2016 02:05:47 GMT
+      - Thu, 26 May 2016 02:22:28 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -111,7 +111,7 @@ http_interactions:
       X-Ratelimit-Limit:
       - '5000'
       X-Ratelimit-Remaining:
-      - '4961'
+      - '4951'
       X-Ratelimit-Reset:
       - '1464231007'
       Cache-Control:
@@ -145,12 +145,12 @@ http_interactions:
       X-Xss-Protection:
       - 1; mode=block
       X-Served-By:
-      - 76d9828c7e4f1d910f7ba069e90ce976
+      - d0b3c2c33a23690498aa8e70a435a259
       X-Github-Request-Id:
-      - 3F910F63:12719:11765E7C:574659FB
+      - 3F910F63:B214:118C60A0:57465DE4
     body:
       encoding: UTF-8
       string: "[]"
     http_version: 
-  recorded_at: Thu, 26 May 2016 02:05:46 GMT
+  recorded_at: Thu, 26 May 2016 02:22:27 GMT
 recorded_with: VCR 3.0.3

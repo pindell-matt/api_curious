@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2016-05-25T20:19:42-06:00">2016-05-25T20:19:42-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2016-05-25T20:22:29-06:00">2016-05-25T20:22:29-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,7 +25,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.51
+         1.57
        </span>
     </span> hits/line)
   </h2>
@@ -127,7 +127,7 @@
         <td>40</td>
         <td>29</td>
         <td>11</td>
-        <td>2.1</td>
+        <td>2.3</td>
       </tr>
       
     </tbody>
@@ -425,7 +425,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.5
+         1.64
        </span>
     </span> hits/line)
   </h2>
@@ -467,7 +467,7 @@
         <td>40</td>
         <td>29</td>
         <td>11</td>
-        <td>2.1</td>
+        <td>2.3</td>
       </tr>
       
     </tbody>
@@ -1381,14 +1381,14 @@
           <code class="ruby">  def initialize(token)</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="4">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="8" data-linenumber="4">
+          <span class="hits">8</span>
           
           <code class="ruby">    @_connection = Faraday.new(url: &quot;https://api.github.com&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="5">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="8" data-linenumber="5">
+          <span class="hits">8</span>
           
           <code class="ruby">    @_connection.headers[&quot;Authorization&quot;] = &quot;token #{token}&quot;</code>
         </li>
@@ -1531,8 +1531,8 @@
           <code class="ruby">  def get_starred_repos</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="29">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="6" data-linenumber="29">
+          <span class="hits">6</span>
           
           <code class="ruby">    connection.get &quot;user/starred&quot;</code>
         </li>
@@ -1555,8 +1555,8 @@
           <code class="ruby">  def starred_repos_hash</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="33">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="6" data-linenumber="33">
+          <span class="hits">6</span>
           
           <code class="ruby">    parse(get_starred_repos)</code>
         </li>
@@ -1771,8 +1771,8 @@
           <code class="ruby">    def parse(response)</code>
         </li>
       
-        <li class="covered" data-hits="13" data-linenumber="69">
-          <span class="hits">13</span>
+        <li class="covered" data-hits="14" data-linenumber="69">
+          <span class="hits">14</span>
           
           <code class="ruby">      JSON.parse(response.body, symbolize_names: true)</code>
         </li>
@@ -1795,8 +1795,8 @@
           <code class="ruby">    def connection</code>
         </li>
       
-        <li class="covered" data-hits="13" data-linenumber="73">
-          <span class="hits">13</span>
+        <li class="covered" data-hits="14" data-linenumber="73">
+          <span class="hits">14</span>
           
           <code class="ruby">      @_connection</code>
         </li>
