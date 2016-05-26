@@ -1,15 +1,14 @@
 require 'rails_helper'
 
 describe GithubService do
-  it "returns all repos for given User" do
+  it "returns data for a given user" do
     VCR.use_cassette('github_service#user') do
-      service = GithubService.new
-      repos   = service.repos
-      repo    = repos.first
+      service = GithubService.new(ENV["TEST_TOKEN"])
+      user    = service.user_hash
 
-      expect(legislators.count).to       eq(20)
-      expect(legislator[:first_name]).to eq("Joni")
-      expect(legislator[:last_name]).to  eq("Ernst")
+      expect(user[:login]).to    eq("pindell-matt")
+      expect(user[:id]).to       eq(8797393)
+      expect(user[:html_url]).to eq("https://github.com/pindell-matt")
     end
   end
 end
