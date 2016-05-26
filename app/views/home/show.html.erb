@@ -27,7 +27,10 @@
         </a>
       </div>
       <hr>
+      <p><strong><%= @user.yearly_contributions %></strong></p>
+      <hr>
       <div class="organizations">
+        <p><strong>Organizations</strong></p>
         <% @user.organizations.each do |organization| %>
           <%= link_to image_tag(organization.avatar_url, alt: "#{organization.login} avatar", class: "img-responsive pull-left"), organization.html_url %>
         <% end %>
@@ -36,13 +39,12 @@
     <div class="col-sm-9">
       <div class="tabbable">
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#tab1" data-toggle="tab"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Contributions</a></li>
+          <li class="active"><a href="#tab1" data-toggle="tab"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Followed User Activity</a></li>
           <li><a href="#tab2" data-toggle="tab"><i class="fa fa-book" aria-hidden="true"></i> Repositories</a></li>
           <li><a href="#tab3" data-toggle="tab"><i class="fa fa-rss" aria-hidden="true"></i> Public Activity</a></li>
         </ul>
         <div class="tab-content">
           <div class="tab-pane active" id="tab1">
-            <h3><%= @user.yearly_contributions %></h3>
             <% @user.activity_of_followed.each do |activity| %>
               <div class="activity">
                 <h4><strong><%= activity.type %> to <%= link_to activity.repo, activity.html_url %></strong></h4>
@@ -54,7 +56,7 @@
           <div class="tab-pane" id="tab2">
             <% @user.repos.each do |repo| %>
               <div class="repo">
-                <h4><strong><%= link_to "#{repo.name}", "#{repo.html_url}" %></strong><small>  <%= repo.owner %></small></h4>
+                <h4><strong><%= link_to repo.name, repo.html_url %></strong><small>  <%= repo.owner %></small></h4>
                 <% unless repo.description.nil? %>
                   <p><%= repo.description %></p>
                 <% end %>
@@ -66,7 +68,7 @@
           <div class="tab-pane" id="tab3">
             <% @user.events.each do |event| %>
               <div class="event">
-                <h4><strong><%= event.type %> for <%= link_to "#{event.repo}", "#{event.html_url}" %></strong></h4>
+                <h4><strong><%= event.type %> for <%= link_to event.repo, event.html_url %></strong></h4>
                 <p>Updated <%= event.create_time_in_words %> ago</p>
               </div>
               <hr>
