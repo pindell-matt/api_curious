@@ -26,6 +26,21 @@
         null,
         null
       ],
+      "/Users/mattpindell/turing/3mod/projects/api_curious/app/models/organization.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
       "/Users/mattpindell/turing/3mod/projects/api_curious/app/models/repo.rb": [
         1,
         1,
@@ -235,6 +250,6 @@
         0
       ]
     },
-    "timestamp": 1464236162
+    "timestamp": 1464237128
   }
 }
