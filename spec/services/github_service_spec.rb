@@ -51,4 +51,31 @@ describe GithubService do
       expect(organization[:url]).to   eq("https://api.github.com/orgs/apiiiiii")
     end
   end
+
+  it "returns the recent events associated with a given user" do
+    VCR.use_cassette('github_service#recent_events') do
+      service       = GithubService.new(ENV["TEST_TOKEN"])
+      recent_events = service.recent_events_hash
+
+      expect(recent_events.count).to eq(30)
+    end
+  end
+
+  it "returns the recent activity associated with accounts a user follows" do
+    VCR.use_cassette('github_service#followed_activity') do
+      service           = GithubService.new(ENV["TEST_TOKEN"])
+      followed_activity = service.recent_events_hash
+
+      expect(followed_activity.count).to eq(30)
+    end
+  end
+
+  it "returns the total yearly contributions for a user" do
+    VCR.use_cassette('github_service#contributions_in_year') do
+      service               = GithubService.new(ENV["TEST_TOKEN"])
+      contributions_in_year = service.get_yearly_contributions.split(" ").first.to_i
+
+      expect(contributions_in_year).to be > 800
+    end
+  end
 end
