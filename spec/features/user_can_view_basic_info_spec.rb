@@ -21,6 +21,15 @@ RSpec.feature "User can view their basic info" do
         expect(page).to have_content("18 Following")
       end
 
+      within(".contributions") do
+        expect(page).to have_content("contributions in the last year")
+      end
+
+      within(".tabbable") do
+        expect(page).to have_selector('li', text: "Followed User Activity", visible: true)
+        expect(page).to have_selector('li', text: "Repositories", visible: true)
+        expect(page).to have_selector('li', text: "Public Activity", visible: true)
+      end
     end
   end
 
