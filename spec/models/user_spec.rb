@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe User do
   it "returns all associated repos" do
-    VCR.use_cassette('user#repos', record: :new_episodes) do
+    VCR.use_cassette('user#repos') do
       user  = User.new(ENV['TEST_TOKEN'])
       repos = user.repos
       repo  = repos.first
