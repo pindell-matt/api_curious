@@ -13,8 +13,10 @@
   <body>
 
     <%= render partial: 'layouts/navbar' %>
-
     <div class="container" >
+      <% flash.each do |type, message| %>
+        <div class="card-panel teal lighten-2"><h5><%= content_tag :div, message.html_safe, class:"flash-#{type}" %></h5></div>
+      <% end %>
       <%= yield %>
     </div>
 

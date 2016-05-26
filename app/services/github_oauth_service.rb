@@ -12,5 +12,4 @@ class GithubOauthService
     }
     access_token = response.env['body'].split('&').first.split('=').last
   end
-
 end

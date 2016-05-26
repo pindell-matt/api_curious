@@ -43,5 +43,4 @@ class User
   def yearly_contributions
     @service.get_yearly_contributions
   end
-
 end

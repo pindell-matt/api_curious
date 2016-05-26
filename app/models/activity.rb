@@ -17,5 +17,4 @@ class Activity
   def html_url
     "https://github.com/#{@repo}"
   end
-
 end
