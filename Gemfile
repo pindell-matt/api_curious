@@ -15,6 +15,10 @@ gem 'nokogiri'
 
 group :development, :test do
   gem 'pry'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'mocha'
+  gem 'shoulda'
 end
 
 group :development do
