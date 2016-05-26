@@ -60,7 +60,7 @@ class GithubService
   def get_yearly_contributions
     that = @connection.get "users/#{login}"
     page = @connection.get parse(that)[:html_url]
-    doc = Nokogiri::HTML(page.body)
+    doc  = Nokogiri::HTML(page.body)
     doc.search('.flush h3').last.text.strip
   end
 
