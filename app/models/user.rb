@@ -11,7 +11,6 @@ class User
     @login      = user_hash[:login]
     @email      = user_hash[:email]
     @created_at = user_hash[:created_at]
-
     @followers  = user_hash[:followers]
     @following  = user_hash[:following]
     @starred    = @service.starred_repos_hash.count
@@ -25,7 +24,7 @@ class User
 
   def events
     @service.recent_events_hash.map do |event_data|
-      OpenStruct.new(event_data)
+      Event.new(event_data)
     end
   end
 
