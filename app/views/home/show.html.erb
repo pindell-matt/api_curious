@@ -1,8 +1,79 @@
 <div class="row">
-  <div class="col-md-3">
-    <% if session[:token] %>
-      <%= link_to image_tag(@avatar, size: '200x200', alt: "#{@user} avatar", class: "img-rounded") %>
-      <h1><%= @user_name %></h1>
-    <% end %>
-  </div>
+  <% if session[:token] %>
+    <div class="col-sm-3">
+      <%= link_to image_tag(@user.avatar_url, alt: "#{@user.name} avatar", class: "img-responsive img-rounded pull-left") %>
+      <div class="basic-user-info">
+        <h3><strong><%= @user.name %></strong></h3>
+        <h4 class="text-muted" ><%= @user.login %></h4>
+      </div>
+      <hr>
+      <div class="basic-user-info">
+        <span class="fa fa-envelope-o" aria-hidden="true"></span> <%= @user.email %>
+      </div>
+      <span class="glyphicon glyphicon-time" aria-hidden="true"></span> Joined on <%= @user.created_at %>
+      <hr>
+      <div class="vcard-stats border-top border-bottom border-gray-light mb-3 py-3">
+        <a class="vcard-stat" href="/pindell-matt/followers">
+          <strong class="vcard-stat-count d-block"><%= @user.followers %></strong>
+          <span class="text-muted">Followers</span>
+        </a>
+        <a class="vcard-stat" href="/stars">
+          <strong class="vcard-stat-count d-block"><%= @user.starred %></strong>
+          <span class="text-muted">Starred</span>
+        </a>
+        <a class="vcard-stat" href="/pindell-matt/following">
+          <strong class="vcard-stat-count d-block"><%= @user.following %></strong>
+          <span class="text-muted">Following</span>
+        </a>
+      </div>
+      <hr>
+      <div class="organizations">
+        <% @user.organizations.each do |organization| %>
+          <%= link_to image_tag(organization.avatar_url, alt: "#{organization.login} avatar", class: "img-responsive pull-left"), organization.url %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm-9">
+      <div class="tabbable">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#tab1" data-toggle="tab"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Contributions</a></li>
+          <li><a href="#tab2" data-toggle="tab"><i class="fa fa-book" aria-hidden="true"></i> Repositories</a></li>
+          <li><a href="#tab3" data-toggle="tab"><i class="fa fa-rss" aria-hidden="true"></i> Public Activity</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="tab1">
+            <h3><%= @user.yearly_contributions %></h3>
+            <% @user.activity_of_followed.each do |activity| %>
+              <div class="activity">
+                <h4><strong><%= link_to "#{activity.repo[:name]}", "#{activity.repo[:url]}" %></strong></h4>
+                <p>By <%= activity.actor[:login] %></p>
+              </div>
+              <hr>
+            <% end %>
+          </div>
+          <div class="tab-pane" id="tab2">
+            <% @user.repos.each do |repo| %>
+              <div class="repo">
+                <h4><strong><%= link_to "#{repo.name}", "#{repo.html_url}" %></strong><small>  <%= repo.owner %></small></h4>
+                <% unless repo.description.nil? %>
+                  <p><%= repo.description %></p>
+                <% end %>
+                <p>Updated <%= repo.update_time_in_words %> ago</p>
+              </div>
+              <hr>
+            <% end %>
+          </div>
+          <div class="tab-pane" id="tab3">
+            <% @user.events.each do |event| %>
+              <div class="event">
+                <h4><strong><%= link_to "#{event.repo[:name]}", "#{event.repo[:url]}" %></strong></h4>
+                <p>Updated at <%= event.created_at %></p>
+              </div>
+              <hr>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
