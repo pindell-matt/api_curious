@@ -19,9 +19,8 @@ describe User do
       events = user.events
       event  = events.first
 
-      expect(events.count).to        eq(30)
-      expect(event.actor[:login]).to eq("pindell-matt")
-      expect(event.repo[:name]).to   eq("pindell-matt/api_curious")
+      expect(events.count).to eq(30)
+      expect(event.repo).to   eq("pindell-matt/api_curious")
     end
   end
 
