@@ -31,8 +31,6 @@ RSpec.feature "User can view their basic info" do
         expect(page).to have_content("rust rust-lang")
         expect(page).to have_content("A safe, concurrent, practical language.")
       end
-
     end
   end
-
 end
