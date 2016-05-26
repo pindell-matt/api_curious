@@ -5,12 +5,10 @@
       <div class="basic-user-info">
         <h3><strong><%= @user.name %></strong></h3>
         <h4 class="text-muted" ><%= @user.login %></h4>
-      </div>
-      <hr>
-      <div class="basic-user-info">
+        <hr>
         <span class="fa fa-envelope-o" aria-hidden="true"></span> <%= @user.email %>
+        <span class="glyphicon glyphicon-time" aria-hidden="true"></span> Joined on <%= @user.created_at %>
       </div>
-      <span class="glyphicon glyphicon-time" aria-hidden="true"></span> Joined on <%= @user.created_at %>
       <hr>
       <div class="vcard-stats border-top border-bottom border-gray-light mb-3 py-3">
         <a class="vcard-stat" href="/pindell-matt/followers">

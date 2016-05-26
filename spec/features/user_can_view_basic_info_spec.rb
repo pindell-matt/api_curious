@@ -8,7 +8,19 @@ RSpec.feature "User can view their basic info" do
 
       visit '/auth/github/callback'
 
-      save_and_open_page
+      within(".basic-user-info") do
+        expect(page).to have_content("Matt Pindell")
+        expect(page).to have_content("pindell-matt")
+        expect(page).to have_content("pindell.m@protonmail.com")
+        expect(page).to have_content("Joined on 2014-09-16T19:59:39Z")
+      end
+
+      within(".vcard-stats") do
+        expect(page).to have_content("20 Followers")
+        expect(page).to have_content("0 Starred")
+        expect(page).to have_content("18 Following")
+      end
+
     end
   end
 
