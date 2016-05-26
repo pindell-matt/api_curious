@@ -5,7 +5,30 @@
         1,
         null
       ],
-      "/Users/mattpindell/turing/3mod/projects/api_curious/app/models/event.rb": [
+      "/Users/mattpindell/turing/3mod/projects/api_curious/app/models/activity.rb": [
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        34,
+        34,
+        34,
+        34,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/mattpindell/turing/3mod/projects/api_curious/app/models/user_event.rb": [
         1,
         1,
         null,
@@ -250,6 +273,6 @@
         0
       ]
     },
-    "timestamp": 1464237128
+    "timestamp": 1464238354
   }
 }
