@@ -9,5 +9,4 @@ class Organization
   def html_url
     "https://github.com/#{login}"
   end
-
 end

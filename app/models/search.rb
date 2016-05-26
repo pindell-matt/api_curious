@@ -13,5 +13,4 @@ class Search
       Result.new(result_data)
     end
   end
-
 end

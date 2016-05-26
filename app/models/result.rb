@@ -7,5 +7,4 @@ class Result
     @owner       = result_hash[:owner][:login]
     @description = result_hash[:description]
   end
-
 end

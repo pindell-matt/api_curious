@@ -32,5 +32,4 @@ RSpec.feature "User can view their basic info" do
       end
     end
   end
-
 end
