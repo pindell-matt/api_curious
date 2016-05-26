@@ -5,12 +5,11 @@
       <div class="basic-user-info">
         <h3><strong><%= @user.name %></strong></h3>
         <h4 class="text-muted" ><%= @user.login %></h4>
-      </div>
-      <hr>
-      <div class="basic-user-info">
+        <hr>
         <span class="fa fa-envelope-o" aria-hidden="true"></span> <%= @user.email %>
+        <br>
+        <span class="glyphicon glyphicon-time" aria-hidden="true"></span> Joined on <%= @user.created_at %>
       </div>
-      <span class="glyphicon glyphicon-time" aria-hidden="true"></span> Joined on <%= @user.created_at %>
       <hr>
       <div class="vcard-stats border-top border-bottom border-gray-light mb-3 py-3">
         <a class="vcard-stat" href="/pindell-matt/followers">
@@ -27,7 +26,9 @@
         </a>
       </div>
       <hr>
-      <p><strong><%= @user.yearly_contributions %></strong></p>
+      <div class="contributions">
+        <p><strong><%= @user.yearly_contributions %></strong></p>
+      </div>
       <hr>
       <div class="organizations">
         <p><strong>Organizations</strong></p>
@@ -44,7 +45,7 @@
           <li><a href="#tab3" data-toggle="tab"><i class="fa fa-rss" aria-hidden="true"></i> Public Activity</a></li>
         </ul>
         <div class="tab-content">
-          <div class="tab-pane active" id="tab1">
+          <div class="tab-pane activities active" id="tab1">
             <% @user.activity_of_followed.each do |activity| %>
               <div class="activity">
                 <h4><strong><%= activity.type %> to <%= link_to activity.repo, activity.html_url %></strong></h4>
@@ -53,7 +54,7 @@
               <hr>
             <% end %>
           </div>
-          <div class="tab-pane" id="tab2">
+          <div class="tab-pane repos" id="tab2">
             <% @user.repos.each do |repo| %>
               <div class="repo">
                 <h4><strong><%= link_to repo.name, repo.html_url %></strong><small>  <%= repo.owner %></small></h4>
@@ -65,7 +66,7 @@
               <hr>
             <% end %>
           </div>
-          <div class="tab-pane" id="tab3">
+          <div class="tab-pane events" id="tab3">
             <% @user.events.each do |event| %>
               <div class="event">
                 <h4><strong><%= event.type %> for <%= link_to event.repo, event.html_url %></strong></h4>
