@@ -54,8 +54,11 @@
           <div class="tab-pane" id="tab2">
             <% @user.repos.each do |repo| %>
               <div class="repo">
-                <h4><strong><%= link_to "#{repo.name}", "#{repo.html_url}" %></strong></h4>
-                <p>Updated at <%= repo.updated_at %></p>
+                <h4><strong><%= link_to "#{repo.name}", "#{repo.html_url}" %></strong><small>  <%= repo.owner %></small></h4>
+                <% unless repo.description.nil? %>
+                  <p><%= repo.description %></p>
+                <% end %>
+                <p>Updated <%= repo.update_time_in_words %> ago</p>
               </div>
               <hr>
             <% end %>

@@ -1,19 +1,17 @@
-class Repo < OpenStruct
+class Repo
+  include ActionView::Helpers::DateHelper
 
-  # def initialize(repo_hash)
-  #   # don't use OpenStruct
-  #   # build ivars
-  # end
+  attr_reader :name, :owner, :html_url, :description
 
-  def self.all(token)
-    all_repos = service(token).repos_hash
-    all_repos.map do |repo_hash|
-      Repo.new(repo_hash)
-    end
+  def initialize(repo_hash)
+    @name        = repo_hash[:name]
+    @owner       = repo_hash[:owner][:login]
+    @html_url    = repo_hash[:html_url]
+    @description = repo_hash[:description]
+    @updated_at  = repo_hash[:updated_at]
   end
 
-  def self.service(token)
-    GithubService.new(token)
+  def update_time_in_words
+    distance_of_time_in_words_to_now(@updated_at.to_time)
   end
-
 end

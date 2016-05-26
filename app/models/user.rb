@@ -11,6 +11,7 @@ class User
     @login      = user_hash[:login]
     @email      = user_hash[:email]
     @created_at = user_hash[:created_at]
+
     @followers  = user_hash[:followers]
     @following  = user_hash[:following]
     @starred    = @service.starred_repos_hash.count
