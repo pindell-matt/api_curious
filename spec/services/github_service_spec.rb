@@ -38,4 +38,17 @@ describe GithubService do
       expect(repos.count).to eq(0)
     end
   end
+
+  it "returns the organizations for a given user" do
+    VCR.use_cassette('github_service#organizations') do
+      service       = GithubService.new(ENV["TEST_TOKEN"])
+      organizations = service.organizations_hash
+      organization  = organizations.first
+
+      expect(organizations.count).to  eq(1)
+      expect(organization[:login]).to eq("apiiiiii")
+      expect(organization[:id]).to    eq(19580612)
+      expect(organization[:url]).to   eq("https://api.github.com/orgs/apiiiiii")
+    end
+  end
 end
