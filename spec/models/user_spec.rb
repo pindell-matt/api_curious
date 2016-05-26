@@ -32,7 +32,6 @@ describe User do
 
       expect(activity.count).to eq(30)
       expect(specific.type).to  eq("ForkEvent")
-      expect(specific.id).to    eq("4062705267")
     end
   end
 

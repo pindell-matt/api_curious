@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Event do
+describe UserEvent do
   it "can return the assosciated repo's url" do
     data  = {
       type:        "PushEvent",
@@ -8,7 +8,7 @@ describe Event do
       created_at:  "2016-04-26T03:42:57Z"
     }
 
-    event = Event.new(data)
+    event = UserEvent.new(data)
 
     expect(event.html_url).to eq("https://github.com/pindell-matt/api_curious")
   end
@@ -19,7 +19,7 @@ describe Event do
       repo:        { name: "pindell-matt/api_curious" },
       created_at:  "2016-04-26T03:42:57Z"
     }
-    event = Event.new(data)
+    event = UserEvent.new(data)
 
     expect(event.create_time_in_words).to eq("about 1 month")
   end

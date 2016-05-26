@@ -24,7 +24,7 @@ class User
 
   def events
     @service.recent_events_hash.map do |event_data|
-      Event.new(event_data)
+      UserEvent.new(event_data)
     end
   end
 
@@ -36,7 +36,7 @@ class User
 
   def activity_of_followed
     @service.recent_activity_of_followed_hash.map do |activity_data|
-      OpenStruct.new(activity_data)
+      Activity.new(activity_data)
     end
   end
 
