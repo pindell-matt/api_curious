@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'figaro'
 gem 'faraday'
+gem 'nokogiri'
 
 group :development, :test do
   gem 'pry'
@@ -19,4 +20,11 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+end
+
+group :test do
+  gem 'vcr'
+  gem 'webmock'
+  gem 'rspec-rails'
+  gem 'simplecov', :require => false
 end
