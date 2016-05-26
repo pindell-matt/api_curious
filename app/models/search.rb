@@ -9,8 +9,8 @@ class Search
   end
 
   def all_search_items(results)
-    results[:items].map do |search_data|
-      OpenStruct.new(search_data)
+    results[:items].map do |result_data|
+      Result.new(result_data)
     end
   end
 
