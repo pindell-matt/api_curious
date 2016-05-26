@@ -66,8 +66,8 @@
           <div class="tab-pane" id="tab3">
             <% @user.events.each do |event| %>
               <div class="event">
-                <h4><strong><%= link_to "#{event.repo[:name]}", "#{event.repo[:url]}" %></strong></h4>
-                <p>Updated at <%= event.created_at %></p>
+                <h4><strong><%= event.type %> for <%= link_to "#{event.repo}", "#{event.html_url}" %></strong></h4>
+                <p>Updated <%= event.create_time_in_words %> ago</p>
               </div>
               <hr>
             <% end %>
