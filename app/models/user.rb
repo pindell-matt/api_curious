@@ -30,7 +30,7 @@ class User
 
   def organizations
     @service.organizations_hash.map do |organization_data|
-      OpenStruct.new(organization_data)
+      Organization.new(organization_data)
     end
   end
 

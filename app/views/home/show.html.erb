@@ -29,7 +29,7 @@
       <hr>
       <div class="organizations">
         <% @user.organizations.each do |organization| %>
-          <%= link_to image_tag(organization.avatar_url, alt: "#{organization.login} avatar", class: "img-responsive pull-left"), organization.url %>
+          <%= link_to image_tag(organization.avatar_url, alt: "#{organization.login} avatar", class: "img-responsive pull-left"), organization.html_url %>
         <% end %>
       </div>
     </div>
