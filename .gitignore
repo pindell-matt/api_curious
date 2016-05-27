@@ -16,5 +16,5 @@
 /config/application.yml
 
 # Ignore coverage
-spec/cassettes
+/spec/cassettes
 coverage
